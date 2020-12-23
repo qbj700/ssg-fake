@@ -16,11 +16,14 @@
 	gtag('config', 'G-ERW7ELC4XM');
 </script>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<!-- jquery 시작 -->
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<!-- jquery 끝 -->
 
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>CHS BLOG</title>
+<title>MODIFY CODE</title>
 <!-- 폰트어썸 불러오기 시작 -->
 <link rel="stylesheet"
 	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
@@ -28,13 +31,15 @@
 <meta name="google-site-verification"
 	content="zTEpOKXM4thR4swpUVV7lrDeZcuxGg-6unXoz2brK4I" />
 <!-- 폰트어썸 불러오기 끝 -->
-	
+
 <!-- Open Graph 태그 시작 -->
 <meta property="og:url" content="https://ssg.modify.kr">
-<meta property="og:type" content="blog">
-<meta property="og:title" content="MODIFY CODE"/>
+<meta property="og:type" content="website">
+<meta property="og:title" content="MODIFY CODE">
 <meta property="og:description" content="풀스택 개발자를 꿈꾸는 개발자 지망생의 IT 블로그">
-<meta property="og:image" content="site/og_image">
+<meta property=”og:image:width” content=”800">
+<meta property=”og:image:height” content=”400">
+<meta property="og:image" content="https://ssg.modify.kr/image.png">
 <!-- Open Graph 태그 끝-->
 <!-- favicon 태그 시작-->
 <link rel="shortcut icon" href="favicon.ico">
@@ -44,6 +49,43 @@
 <body>
 
 	<div class="body-content min-height-100vh flex flex-column">
+	
+	<!-- 다크모드 시작 -->
+		<div class="con-min-width">
+			<div class="con switch-box">
+				<div class="theme-switch-wrapper">
+					<label class="theme-switch" for="checkbox"> 
+					<input type="checkbox" id="checkbox" />
+						<div class="slider round"></div>
+					</label> <em>Enable Dark Mode!</em>
+				</div>
+			</div>
+		</div>
+		
+		<script>
+		const toggleSwitch = document.querySelector('.theme-switch input[type="checkbox"]');
+		const currentTheme = localStorage.getItem('theme');
+
+		if (currentTheme) {
+		    document.documentElement.setAttribute('data-theme', currentTheme);
+		  
+		    if (currentTheme === 'dark') {
+		        toggleSwitch.checked = true;
+		    }
+		}
+
+		function switchTheme(e) {
+		    if (e.target.checked) {
+		        document.documentElement.setAttribute('data-theme', 'dark');
+		        localStorage.setItem('theme', 'dark');
+		    }
+		    else {        document.documentElement.setAttribute('data-theme', 'light');
+		          localStorage.setItem('theme', 'light');
+		    }    
+		}
+
+		toggleSwitch.addEventListener('change', switchTheme, false);</script>
+		<!-- 다크모드 끝 -->
 		<!-- 로고바 시작 -->
 		<header class="logo-bar con-min-width">
 			<div class="con">
@@ -53,7 +95,7 @@
 			</div>
 		</header>
 		<!-- 로고바 끝 -->
-
+		
 		<!-- 메뉴바 시작 -->
 		<header class="menu-bar con-min-width">
 			<div class="con height-100p">
@@ -61,7 +103,7 @@
 					<ul class="flex flex-jc-c">
 						<li><a class="block" href="index.html"> <span>HOME</span>
 						</a></li>
-						<li><a class="block" href="#"> <span>ARTICLES</span>
+						<li><a class="block" href="article_all_1.html"> <span>ARTICLES</span>
 						</a>
 							<ul><li><a href="article_list_notice_1.html" class="block"><i class="fas fa-flag"></i> <span>NOTICE LIST</span></a></li><li><a href="article_list_free_1.html" class="block"><i class="fab fa-free-code-camp"></i> <span>FREE LIST</span></a></li><li><a href="article_list_it_1.html" class="block"><i class="fas fa-clipboard-list"></i> <span>IT LIST</span></a></li>
 							</ul></li>
@@ -71,13 +113,13 @@
 						<li><a class="block" href="https://github.com/qbj700"
 							target="_blank"> <sapn>GIT HUB</sapn>
 						</a></li>
-						<li><a class="block" href="#"><span>STATISTICS</span> </a></li>
+						<li><a class="block" href="statistics.html"><span>STATISTICS</span> </a></li>
 					</ul>
 				</nav>
 			</div>
 		</header>
 		<!-- 메뉴바 끝 -->
-		
+
 		<div class="line"></div>
 
 		<main class="flex-grow-1">
@@ -114,7 +156,7 @@
 					<span>작성자 : 최형석</span>
 				</div>
 				<div class="meta-data__right">
-					<span>번호 : 3</span> <span>조회수 : 0</span>
+					<span>번호 : 3</span> <span>조회수 : 33</span>
 					<span>추천수 : 0</span>
 				</div>
 			</div>
@@ -288,8 +330,8 @@ num1 = 1.23, num2 = 4.56; // 하지만 이미 선언된 여러 변수를 동시�
 					class="hover-underline ">&lt;
 						이전 글</a></span> <span><a href="article_list_it_1.html"
 					class="hover-underline ">리스트</a></span>
-				<span><a href="article_detail_0.html"
-					class="hover-underline none">
+				<span><a href="article_detail_5.html"
+					class="hover-underline ">
 						다음 글 &gt;</a></span>
 			</div>
 		</div>

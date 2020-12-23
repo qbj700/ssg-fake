@@ -32,6 +32,21 @@ a {
   text-decoration:none;
 }
 
+body {
+    background-color: var(--bg-color);
+    color: var(--font-color);
+}
+
+h1 {
+    color: var(--secondary-color);
+}
+
+
+/* 임시 */
+a {
+    color: var(--primary-color);
+}
+
 /* 라이브러리 */
 .flex {
   display:flex;
@@ -108,7 +123,7 @@ a {
 .line {
   height:1px;
   width:100%;
-  background-color:skyblue;
+  background-color:var(--primary-color);
   opacity:50%;
 }
 
@@ -133,11 +148,11 @@ a {
 }
 
 .logo__text {
-  color:pink;
+  color:var(--secondary-color);
 }
 
 .ico {
-  color:skyblue;
+  color:var(--primary-color);
 }
 
 .bg-red {
@@ -158,13 +173,15 @@ a {
 
 
 .menu-bar__menu-1 > ul ul {
-  display:none;
+  opacity:0;
+  visibility:hidden;
   position:absolute;
   top:100%;
   left:0;
   width:100%;
   font-size:14px;
   z-index:10;
+  transition:all 0.3s;
 }
 
 .menu-bar__menu-1 ul > li > a {
@@ -174,13 +191,14 @@ a {
 
 
 .menu-bar__menu-1 ul > li:hover > a {
-  color:pink;
+  color:var(--secondary-color);
   text-decoration:underline;
 }
 
 .menu-bar__menu-1 > ul > li:hover > ul {
-  display:block;
-  background-color:white;
+  opacity:1;
+  visibility:visible;
+  background-color:var(--bg-color);
 }
 /* 메뉴바 끝 */
 
@@ -244,7 +262,7 @@ a {
   right:0;
   width:1px;
   height:10px;
-  background-color:black;
+  background-color:var(--font-color);
 }
 
 .article-list > * > div > div {
@@ -276,7 +294,7 @@ a {
 }
 
 .article-list > main > div {
-  border-top:1px solid black;
+  border-top:1px solid var(--font-color);
 }
 
 /* 게시물 리스트 끝 */
@@ -313,7 +331,7 @@ a {
 }
 
 .article-detail__body {
-  border-top:2px solid #afafaf;
+  border-top:2px solid var(--font-color);
   padding-top:40px;
 }
 
@@ -363,5 +381,217 @@ a {
 /* 홈 페이지 텍스트 시작 */
 .index-box > div {
 	padding-top:20px;
+	position:relative;
+}
+
+.slide {
+  width:500px;
+}
+
+*{margin:0;padding:0;}
+ul,li{list-style:none;}
+.slide{height:300px;overflow:hidden;}
+.slide ul{position:relative;height:100%;}
+.slide li{position:absolute;left:0;right:0;top:0;bottom:0;opacity:0;animation:fade 8s infinite;transition:all 0.5s;}
+.slide li:nth-child(1){background:url('https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FdMnVV7%2FbtqQ3grQ99F%2Fnx3LTIJPPHDnO8TjYNx6m0%2Fimg.jpg');animation-delay:0s}
+.slide li:nth-child(2){background:url('https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FbFqmPv%2FbtqQ1MLjWmJ%2FVdQBuKsISAzJxEMFKy8eq0%2Fimg.jpg');animation-delay:2s}
+.slide li:nth-child(3){background:url('https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FYbasC%2FbtqRcGQomQa%2FNz5Wvvw0zJdsujgDSqT0hK%2Fimg.jpg');animation-delay:4s}
+.slide li:nth-child(4){background:url('https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FcVljcH%2FbtqQZx84yiW%2FJcn0WwFUidO8woX1wR48QK%2Fimg.jpg');animation-delay:6s}
+/* 100 / 8 = 12.5 */
+@keyframes fade {
+  0% {opacity:0;}
+  5% {opacity:1;}
+  25% {opacity:1;}
+  30% {opacity:0;}
+  100% {opacity:0;}
+}
+
+.index-box__content {
+  position:absolute;
+  top:0;
+  left:0;
+  right:0;
+  bottom:0;
+
+}
+.index > div {
+  width:50%;
+  height:50%;
+  position:absolute;
+  top:0;
+  left:0;
+
+}
+
+.index > .right {
+  top:0;
+  right:0;
+  left:auto;
+}
+
+.index-text {
+  padding:10px 0px;
+}
+
+.profile {
+  position:absolute;
+  padding:20px 0;
+}
+
+.profile > div{
+  padding:7px 0;
+}
+
+.right {
+	border-left:2px solid var(--primary-color);
+	padding-left:160px;
+	padding-right:100px;
 }
 /* 홈 페이지 텍스트 끝 */
+
+/* 다크모드 슬라이더 시작 */
+.switch-box {
+	position:relative;
+	margin-top:10px;
+}
+
+.theme-switch-wrapper {
+  display: flex;
+  position: absolute;
+  align-items: center;
+  right:5%;
+}
+
+em {
+	display: flex;
+	align-items:center;
+    margin-left: 10px;
+    font-size: 1rem;
+}
+
+.theme-switch {
+  display: inline-block;
+  height: 34px;
+  position: relative;
+  width: 60px;
+}
+
+.theme-switch input {
+  display:none;
+}
+
+.slider {
+  background-color: #ccc;
+  bottom: 0;
+  cursor: pointer;
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+  transition: .4s;
+}
+
+.slider:before {
+  background-color: #fff;
+  bottom: 4px;
+  content: "";
+  height: 26px;
+  left: 4px;
+  position: absolute;
+  transition: .4s;
+  width: 26px;
+}
+
+input:checked + .slider {
+  background-color: #66bb6a;
+}
+
+input:checked + .slider:before {
+  transform: translateX(26px);
+}
+
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+/* 다크모드 슬라이더 끝 */
+
+/* 다크모드 시작 */
+:root {
+    --primary-color: skyblue;
+    --secondary-color: pink;
+    --font-color: #424242;
+    --bg-color: #fff;
+    --box-color: #f5f7f8;
+    --heading-color: #292922;
+}
+
+[data-theme="dark"] {
+    --primary-color: #28a6db;
+    --secondary-color: #ff6480;
+    --font-color: #e1e1ff;
+    --bg-color: #161625;
+    --box-color: #000040;
+    --heading-color: #818cab;
+}
+
+/* 토스트 UI 뷰어 시작 */
+.tui-editor-contents pre {
+	background-color:var(--box-color) !important;
+}
+
+.tui-editor-contents p {
+	color:var(--font-color) !important;
+}
+
+.tui-editor-contents dir, .tui-editor-contents menu, .tui-editor-contents ol, .tui-editor-contents ul {
+	color:var(--font-color) !important;
+}
+
+.tui-editor-contents h1, .tui-editor-contents h2, .tui-editor-contents h3, .tui-editor-contents h4, .tui-editor-contents h5, .tui-editor-contents h6 {
+	color:var(--heading-color) !important;
+}
+/* 토스트 UI 뷰어 끝 */
+/* disqus 설정 시작 */
+#disqus_thread {
+	color: var(--bg-color) !important;
+	border-style: 0px solid;
+	border-color: var(--box-color) !important;
+	padding: 5px;
+}
+
+#dsq-content #dsq-comments .dsq-comment-body {
+	color: var(--bg-color) !important;
+	background-color: var(--heading-color) !important;
+}
+
+.dsq-reaction-body {
+	color: var(--bg-color) !important;
+}
+
+.dsq-reaction-header cite, .dsq-reaction-header span {
+	color: var(--box-color) !important;
+}
+
+.dsq-reaction-retweets {
+	color: var(--box-color) !important;
+}
+/* disqus 설정 끝 */
+
+/* 다크모드 끝 */
+
+/* 통계 페이지 시작 */
+.statistics-detail {
+  height:400px;
+  justify-content:center;
+  align-items:center;
+  flex-direction:column;
+}
+.statistics-detail > div {
+  font-size:3rem;
+  padding:20px;
+}
+/* 통계 페이지 끝 */
