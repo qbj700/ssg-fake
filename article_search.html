@@ -56,7 +56,7 @@
 <meta itemprop="description" content="풀스택 개발자가 되기위한 기술/일상 관련 글들을 공유합니다." />
 <meta itemprop="image" content="https://ssg.modify.kr/image.png" />
 
-<title>(공지사항) MODIFY CODE에 오신걸 환영합니다.👨‍🔧 | MODIFY CODE | ARTICLE DETAIL</title>
+<title>MODIFY CODE | ARTICLE SEARCH</title>
 
 <!-- 폰트어썸 불러오기 시작 -->
 <link rel="stylesheet"
@@ -163,87 +163,46 @@
 
 		<main class="flex-grow-1">
 			<section class="title-bar con-min-width">
-				<h1 class="con"><i class="fas fa-file-alt"></i> <span>ARTICLE DETAIL</span></h1>
-			</section><!-- 하이라이트 라이브러리 추가, 토스트 UI 에디터에서 사용됨 -->
+				<h1 class="con"><i class="fas fa-search"></i> <span>ARTICLE SEARCH</span></h1>
+			</section><!-- vue 불러오기 -->
+<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+
+<!-- lodash 불러오기 -->
 <script
-	src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.4.1/highlight.min.js"></script>
-<link rel="stylesheet"
-	href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.4.1/styles/default.min.css">
+	src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.20/lodash.min.js"></script>
 
-<!-- 토스트 UI 에디터, 자바스크립트 코어 -->
-<script
-	src="https://uicdn.toast.com/editor/latest/toastui-editor-all.min.js"></script>
-
-<!-- 코드 미러 라이브러리 추가, 토스트 UI 에디터에서 사용됨 -->
-<link rel="stylesheet"
-	href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.58.3/codemirror.min.css" />
-<!-- 토스트 UI 에디터, CSS 코어 -->
-<link rel="stylesheet"
-	href="https://uicdn.toast.com/editor/latest/toastui-editor.min.css" />
-
-<!-- 토스트 UI 에디터, 신택스 하이라이트 플러그인 추가 -->
-<script
-	src="https://uicdn.toast.com/editor-plugin-code-syntax-highlight/latest/toastui-editor-plugin-code-syntax-highlight.min.js"></script>
-
-<section class="section-1 con-min-width">
+<section id="article-list-wrap" class="section-1 con-min-width">
 	<div class="con">
-		<div class="article-detail">
-			<div class="article-detail__title" style="font-size: 2rem">(공지사항) MODIFY CODE에 오신걸 환영합니다.👨‍🔧</div>
-			<div class="article-detail__meta-data flex flex-jc-sb">
-				<div class="meta-data__left">
-					<span>게시판 : 공지사항</span> <span>작성일 : 2020-12-17 17:38:26</span>
-					<span>작성자 : 최형석</span>
+		<div class="search-bar flex flex-jc-e">
+			<span>
+				<input @input="searchKeywordInputed" :value="searchKeyword" class="clean-slide" id="age" type="text" placeholder="검색어를 입력하세요.">
+				<label for="검색">검색</label>
+			</span>
+		</div>
+		<div class="article-list">
+			<header>
+				<div>
+					<div class="article-list__cell-id">번호</div>
+					<div class="article-list__cell-reg-date">날짜</div>
+					<div class="article-list__cell-writer">작성자</div>
+					<div class="article-list__cell-title">제목</div>
 				</div>
-				<div class="meta-data__right">
-					<span>번호 : 1</span> <span>조회수 : 16</span>
-					<span>추천수 : 0</span> <span><i class="far fa-comments"></i>&nbsp<a href="https://ssg.modify.kr/article_detail_1.html#disqus_thread">(Second article)</a></span>
+			</header>
+			<div class="main">
+				<div v-for="article in filtered">
+					<div class="article-list__cell-id">{{article.id}}</div>
+					<div class="article-list__cell-reg-date">{{article.regDate}}</div>
+					<div class="article-list__cell-writer">{{article.writer}}</div>
+					<div class="article-list__cell-title">
+						<a :href="'article_detail_' + article.id + '.html'" target="_blank"
+							class="hover-underline">{{article.title}}</a>
+					</div>
 				</div>
-			</div>
-
-			<div class="article-detail__body"># MODIFY CODE 에서는
-## IT관련 강의 및 소식을 다룰 예정
-
- - 주된 개발언어
-  - JAVA
-  - SQL
-  - HTML
-  - CSS
-  - JS
-  - 그외 다수</div>
-
-			<div class="article-detail__reply-box">
-				<div id="disqus_thread"></div>
-				<script>
-					var disqus_config = function() {
-						this.page.url = 'https://ssg.modify.kr/article_detail_1.html';
-						this.page.identifier = 'article_detail_1.html';
-					};
-					(function() { // DON'T EDIT BELOW THIS LINE
-						var d = document, s = d.createElement('script');
-						s.src = 'https://chs-ssg.disqus.com/embed.js';
-						s.setAttribute('data-timestamp', +new Date());
-						(d.head || d.body).appendChild(s);
-					})();
-				</script>
-				<noscript>
-					Please enable JavaScript to view the <a
-						href="https://disqus.com/?ref_noscript">comments powered by
-						Disqus.</a>
-				</noscript>
-			</div>
-
-			<div class="article-detail__menu flex flex-jc-c">
-				<span><a href="article_detail_0.html"
-					class="hover-underline none">&lt;
-						이전 글</a></span> <span><a href="article_list_notice_1.html"
-					class="hover-underline ">리스트</a></span>
-				<span><a href="article_detail_0.html"
-					class="hover-underline none">
-						다음 글 &gt;</a></span>
 			</div>
 		</div>
 	</div>
-</section></main>
+</section>
+<script src="article_search.js"></script></main>
 
 <!-- 최상단 이동 버튼 시작 -->
 <div>
